@@ -14,19 +14,23 @@ const HomePage = () => {
 
   return (
     <section>
-      <h1>Count: {count}</h1>
-      <button onClick={() => dispatch(incrementCounter())}>Increment</button>
-      <button onClick={() => dispatch(decrementCounter())}>Decrement</button>
-      {
-        data?.map((user,id) => {
-          return <div key={id}>
-            <p>{user.id}</p>
-            <p>{user.name}</p>
-            <p>{user.email}</p>
-            <p>{user.username}</p>
-          </div>
-        })
-      }
+      <h1 className='text-center text-2xl'>Count: {count}</h1>
+      <div className="buttonSection flex justify-center gap-2">
+        <button className='bg-green-500 py-3 px-2 rounded-md' onClick={() => dispatch(incrementCounter())}>Increment</button>
+        <button className='bg-blue-500 py-3 px-2 rounded-md' onClick={() => dispatch(decrementCounter())}>Decrement</button>
+      </div>
+      <div className='grid grid-cols-3 gap-2 p-2'>
+        {
+          data?.map((user, id) => {
+            return <div key={id} className='bg-slate-200'>
+              <p>{user.id}</p>
+              <p>{user.name}</p>
+              <p>{user.email}</p>
+              <p>{user.username}</p>
+            </div>
+          })
+        }
+      </div>
     </section>
   )
 }
